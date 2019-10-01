@@ -59,11 +59,21 @@ i {
   margin-bottom: 0;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 700px) {
   i {
-    font-size: 60px;
+    font-size: 80px;
   }
   #paireT {
     margin-top: 20px;
+  }
+}
+
+
+@media screen and (min-width: 950px) {
+  i {
+    font-size: 60px!important;
+  }
+  #paireT {
+    margin-top: 20px!important;
   }
 }
