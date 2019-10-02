@@ -1,6 +1,7 @@
 
 
 var td = document.getElementsByClassName("card");
+var iIndiv = document.getElementsByTagName("I");
 
 function randomArray(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,11 +31,14 @@ var etat3;
 var cards = [];
 var element1;
 var element2;
+var indiv1;
+var indiv2;
 
 class Card {
   constructor(element) {
     this.frontface = "question";
     this.backface = ic[i];
+    this.iIndiv = iIndiv[i]
     element.addEventListener("click", () => {tdclick(this, element)});
     this.element = element;
   }
@@ -55,8 +59,9 @@ function tdclick(letd, element) {
       card1 = letd.backface;
       element1 = element;
       element.style.backgroundColor = "red";
-      element.className = "fas fa-"+card1;
-      istrue(letd, element);
+      letd.iIndiv.className = "fas fa-"+card1;
+      indiv1 = letd.iIndiv;
+      istrue(letd, element, indiv1, indiv2);
       return ;
     }
     if (etat2 == false) {
@@ -64,8 +69,9 @@ function tdclick(letd, element) {
       card2 = letd.backface;
       element2 = element;
       element.style.backgroundColor = "red";
-      element.className = "fas fa-"+card2;
-      istrue(letd, element)
+      letd.iIndiv.className = "fas fa-"+card2;
+      indiv2 = letd.iIndiv;
+      istrue(letd, element, indiv1, indiv2)
       return ;
     }
   }
@@ -73,7 +79,7 @@ function tdclick(letd, element) {
 }
 
 
-function istrue(letd, element) {
+function istrue(letd, element, indiv1, indiv2) {
   if (etat1 == true && etat2 == true) {
     etat1 = false;
     etat2 = false;
@@ -84,8 +90,8 @@ function istrue(letd, element) {
     if (!(card1 == card2)) {
       element1.style.backgroundColor = "rgba(255, 0, 207, 0)";
       element2.style.backgroundColor = "rgba(255, 0, 207, 0)";
-      element1.className = "fas fa-question";
-      element2.className = "fas fa-question";
+      indiv1.className = "fas fa-question";
+      indiv2.className = "fas fa-question";
     }
     tdclick(letd,element);
     return ;
